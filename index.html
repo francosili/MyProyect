@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SmartCook</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/mdb.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">     
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
+        <script type="text/javascript" src="js/ngStorage.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="js/tether.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+
+<body class="body">
+<div ng-app="myapp">
+    <div ng-controller="search">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 hidden-xs-down">
+                    <nav class="navbar navbar-dark green">        
+                        <a class="navbar-brand" href="#">SmartCook.com</a>
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Search recipies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="hidden-sm-up">
+                    <nav class="navbar navbar-dark green"> 
+                        <a class="navbar-brand" href="#">SmartCook.com</a>
+                        <div class="btn-group">
+                            <button type="button" class="fa fa-bars btn button-color dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Home</a>
+                                <a class="dropdown-item" href="#">Search recipies</a>
+                                <a class="dropdown-item" href="#">About</a>
+                            </div> 
+                        </div>                       
+                    </nav>
+                </div>                
+            </div>
+        </div>
+        <form class="form-inline">
+            <div class="row">
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-2 logo">
+					SmartCook.Com
+				</div>
+                <div class= "col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-2 offset-xs-2 search">
+                    <div class="md-form">
+                        <i class="fa fa-search prefix"></i>
+                        <input type="text" id="form81" ng-model="ingredientName" class="form-control validate" placeholder="Type your's ingredients">
+                        <label for="form81" data-error="wrong"  data-success="right" placeholder="Type your's ingredients"></label>
+                        <button type="subm" ng-click="save()" class="btn btn-success-outline waves-effect">Add</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-2 offset-xs-2 container--ingredients">
+                <ul class="list-group">
+                    <li ng-repeat="ingredient in ingredients track by $index" class="list-group-item">
+                        <span class="tag bg-primary label-pill pull-xs-right"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                        <span>{{ingredient}}</span>
+                    </li>
+                </ul>
+                <button type="subm" ng-click="transformToString()" class="btn btn-success-outline waves-effect">Find</button>
+            </div>
+        </div>
+        <div class="row">
+        <div ng-repeat="recipie in recipies" class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-2 offset-xs-2">
+            <div class="media">
+                <a class="media-left waves-light">
+                    <img class="img-thumbnail" src={{recipie.image}} alt="Responsive image">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{recipie.title}}</h4>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
