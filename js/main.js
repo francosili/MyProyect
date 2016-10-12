@@ -19,7 +19,7 @@ var myapp = angular.module('myapp', []);
         
         $scope.transformToString = function() {
             var str = $scope.ingredients.toString();
-            var newstr = str.replace(/,/g,"%2");            
+            var newstr = str.replace(/,/g,"%2C");            
             $scope.ingredientsSelected = newstr;  
             $http.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients='+$scope.ingredientsSelected+'&limitLicense=false&number=5&ranking=1',
             { headers: { "X-Mashape-Key" : "17mFSy4UERmsh6frGLaUs1tP4jccp1JYcCQjsnGKfLpji136TV" }})
@@ -33,6 +33,10 @@ var myapp = angular.module('myapp', []);
                 console.log(err);
             });
         
+        };
+        
+        $scope.remove = function(index) { 
+            $scope.ingredients.splice(index, 1);     
         };
 });
 
