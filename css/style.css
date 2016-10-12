@@ -29,3 +29,8 @@
 .container--search {
 	position: relative;
 }
+
+.img--responsiv {
+    width: 175px;
+    height: 135px;
+}
