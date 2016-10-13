@@ -34,3 +34,11 @@
     width: 175px;
     height: 135px;
 }
+
+.recipie--title {
+    font-size:30px;
+}
+
+.recipie--ingredients {
+    font-size:20px;
+}

@@ -86,10 +86,19 @@
                     <img class="img-circle img--responsiv" src={{recipie.image}} alt="Responsive image">
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading">{{recipie.title}}</h4>
+                   <a ng-click="goToRecipie(recipie.id)" <h4 class="media-heading">{{recipie.title}}</h4> </a>
                 </div>
             </div>
         </div>
+        </div>
+        </br>
+        </br>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-2 offset-xs-2">
+                <div class="recipie--title" ng-bind="recipie.title"></div>
+                <div class="recipie--ingredients" ng-repeat="x in recipie.extendedIngredients">°{{x.originalString}}</div>
+                <div ng-bind="recipie.instructions"></div>
+            </div>
         </div>
         </br>
         </br>
